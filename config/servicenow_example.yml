@@ -1,22 +1,22 @@
 service_now:
-  instance_name: "CHANGE_ME"
-  user_name: "CHANGE_ME"
-  password: "CHANGE_ME"
+  instance_name: "https://dev96535.service-now.com/"
+  user_name: "systemuser1"
+  password: "Password@1"
 
 workflow:
-  incident_group_key_field: "CHANGE_ME"
+  ncident_group_key_field: "u_prometheus_alertgroup_id"
   no_update_states: [6,7,8]
   incident_update_fields: ["comments"]
 
 default_incident:
-  assignment_group: "{{.CommonAnnotations.assignment_group}}"
-  category: "Failure"
-  cmdb_ci: "{{.CommonAnnotations.cmdb_ci}}"
-  comments: "Alerts list:\n\n{{ range .Alerts }}[{{ .Status }}] {{.StartsAt}} {{.Labels.alertname}}\n{{.Annotations.description}}\n\n{{ end }}"
-  company: "{{.CommonAnnotations.company}}"
-  contact_type : "{{.CommonAnnotations.contact_type}}"
-  description: "Received alerts from AlertManager at {{.ExternalURL}} (\"{{.Receiver}}\" receiver configuration) with common descriptions:\n\n{{.CommonAnnotations.description}}"
-  impact: "2"
-  short_description: "Alerts from group: {{ range $key, $val := .GroupLabels}}{{ $key }}:{{ $val }} {{end}}"
-  subcategory: "Missing Part"
-  urgency: "{{.CommonAnnotations.urgency}}"
+  assignment_group: "<assignment group>"
+  category: "<Software>"
+  cmdb_ci: "<configuration item>"
+  comments: "<comments text>"
+  company: "<company name>"
+  contact_type : "<contact type>"
+  description: "<description text>"
+  impact: "2-High"
+  short_description: "Test Alert from webhook"
+  subcategory: "Operating System"
+  urgency: "2-High"
